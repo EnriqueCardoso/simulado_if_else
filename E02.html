@@ -1,19 +1,37 @@
 <script>
-    //PROBLEMA: Compra na Feira
+    /*PROBLEMA: Compra na Feira
     //Considere que a pessoa foi até a feira e realizou algumas compras, sendo:
     //Mamão: 5 Unidades
     //Melancia: 3 Kg
     //Abacate: 4 Unidades
     //Cebola: 1.1 Kg
-    //Peça para o usuário informar o preço do Kg ou da Unidade de cada um dos produtos que comprou (citados acima) e peça também para o usuário informar quanto dinheiro possui para realizar a compra.
-    //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, indicando se sobrará ou faltará dinheiro, e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. Apresente também na tela o valor total da compra.
+    //Peça para o usuário informar o preço do Kg ou da Unidade de cada um dos produtos que comprou (citados acima) e peça também para o usuário informar 
+    quanto dinheiro possui para realizar a compra.
+    //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, indicando se sobrará ou faltará dinheiro, 
+    e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. Apresente também na tela o valor total da compra.
+    */
 
     //ENTRADA
-
+    const mamao = Number(prompt("Informe o preço da unidade do mamão;").replace(",", ".").trim());
+    const melancia = Number(prompt("Informe o preço do KG da melancia:").replace(",", ".").trim());
+    const abacate = Number(prompt("Informe o preço da unidade do abacate:").replace(",", ".").trim());
+    const cebola = Number(prompt("Informe o preço do KG da cebola:").replace(",", ".").trim());
+    const dinheiro = Number(prompt("Informe a quantidade de dinheiro que você possuia:").replace(",", ".").trim());
 
     //PROCESSAMENTO
-
+    const precoMamao = Number(5 * mamao);
+    const precoMelancia = Number(3 * melancia);
+    const precoAbacate = Number(4 * abacate);
+    const precoCebola = Number(1.1 * cebola);
+    const precoTotal = Number(precoMamao + precoMelancia + precoAbacate + precoCebola);
+    const sobraOuFalta = Number(dinheiro - precoTotal);
 
     //SAÍDA
+    if (dinheiro >= precoTotal) {
+        alert(`Parabéns!Você tem dinheiro suficiente para pagar.O valor total de sua compra foi de R$${precoTotal.toFixed(2).replace(".",",")},e ainda te sobrou R$${sobraOuFalta.toFixed(2).replace(".",",")} .`)
+    }
+    else{
+        alert(`Infelizmnete você não possui o dinheiro suficiente para pagar,o total de sua compra foi de R$${precoTotal.toFixed(2).replace(".",",")} e te faltaram R$${sobraOuFalta.toFixed(2).replace(".",",")}`);
+    }
 
 </script>
